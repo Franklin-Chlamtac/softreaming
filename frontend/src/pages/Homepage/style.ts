@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 
 export const HomepageContainer = styled.header`
-  height: 100vh;
+  height: 100vw;
   max-width: 100vw;
   background-image: url("./../src/assets/Netflix_poster.jpg");
   background-position: center center;

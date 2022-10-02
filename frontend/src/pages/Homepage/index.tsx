@@ -1,6 +1,17 @@
 import React from "react";
-import { EnterLink, EnterPageWrapper, HomepageContainer, Logo, LogoWrapper, StoryCard, StoryCardSubtitle, StoryCardText, StoryCardTitle, } from "./style";
-import * as LogoNetflix from "../../assets/LogoNetflix.png";
+import { EnterLink, 
+  EnterPageWrapper, 
+  HomepageContainer, 
+  Logo, 
+  LogoWrapper, 
+  StoryCard, 
+  StoryCardSubtitle, 
+  StoryCardText, 
+  StoryCardTitle, 
+} from "./style";
+import LogoNetflix from "../../assets/LogoNetflix.png";
+import Form from "../SignUp/SignUp";
+
 
 
 const Homepage: React.FC = () => {
@@ -10,7 +21,7 @@ const Homepage: React.FC = () => {
           <EnterPageWrapper>
             <LogoWrapper>
               <Logo src={LogoNetflix} alt="logo da netflix" />
-              <EnterLink to={"/auth"}>Entrar</EnterLink>
+              <EnterLink to={"/SignUp"}>Cadastrar</EnterLink>
             </LogoWrapper>
             <StoryCard>
               <StoryCardTitle>
