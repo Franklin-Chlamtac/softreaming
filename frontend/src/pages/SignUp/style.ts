@@ -70,6 +70,8 @@ export const FormInput = styled.input`
   margin-bottom: 0.5rem;
 `;
 
+
+
 export const FormInputSubmit = styled(FormInput)`
   ${({ theme }) => css`
     background: ${theme.colors.redColor};
