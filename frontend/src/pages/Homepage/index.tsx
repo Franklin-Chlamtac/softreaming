@@ -31,7 +31,7 @@ const Homepage: React.FC = () => {
                 Assista onde quiser. Cancele quando quiser.
               </StoryCardSubtitle>
               <StoryCardText>
-                Pronto para assistir? Clique no botão <strong>Entrar</strong> para
+                Pronto para assistir? Clique no botão <EnterLink to={"/Login"}>Entrar</EnterLink> para
                 acessar a sua conta ou realizar o seu cadatro!
               </StoryCardText>
             </StoryCard>

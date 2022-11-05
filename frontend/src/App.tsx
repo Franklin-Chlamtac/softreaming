@@ -5,6 +5,7 @@ import { ThemeProvider } from "styled-components";
 import { theme } from "./styles/theme";
 import SignUp from "./pages/SignUp/index";
 import { GlobalStyles } from "./styles/global-styles";
+import LoginPage from './pages/LoginPage';
 
 
 const App: React.FC = () => {
@@ -16,6 +17,7 @@ const App: React.FC = () => {
           <Routes>
             <Route path="/" element={<Homepage />} />
             <Route path="/signup" element={<SignUp />} />
+            <Route path="/login" element={<LoginPage/>} />
           </Routes>
         </ThemeProvider>
         <GlobalStyles />

@@ -31,7 +31,7 @@ const Form: React.FC = () => {
                 <FormTitle>Cadastrar</FormTitle>
 
                 <div className="Form">
-                    <div className="title">Cadastrar</div>
+                    <div className="title">Cadastro</div>
                     <div className="inputs">
                         <form onSubmit={handleSubmit(submitForm)}>
                             <FormInput type="text" placeholder="Digite seu nome..." {...register("email")}/>
