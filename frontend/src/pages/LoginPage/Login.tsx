@@ -1,5 +1,7 @@
 import React from "react";
-import { FormInput, FormInputSubmit, FormTitle, HomepageContainer, LoginWrapper, Logo, LogoLink, LogoWrapper, PageWrapper} from "./style";
+import { FormInput, FormInputSubmit, FormTitle,
+     HomepageContainer, LoginWrapper, Logo,
+     LogoLink, LogoWrapper, PageWrapper} from "./style";
 import LogoImage from "../../assets/LogoNetflix.png";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { loginValidation } from "./schema";
@@ -31,10 +33,7 @@ const LoginForm: React.FC = () => {
                             <div className="inputs">
                                 <form onSubmit={handleSubmit(submitForm)}>
                                     <FormInput type="text" placeholder="E-mail" {...register("email")}/>
-                                    {errors.email?.message && <p>errors.email?.message</p>}
-                                    <FormInput type="password" placeholder="Senha"{...register("senha")}/>
-                                    {errors.password?.message && <p>errors.password?.message</p>}
-
+                                    <FormInput type="password" placeholder="Senha"{...register("password")}/>
                                     <FormInputSubmit  type="submit" value="Entrar"/>
                                 </form>
                             </div>

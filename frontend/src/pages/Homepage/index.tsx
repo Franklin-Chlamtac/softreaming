@@ -21,7 +21,7 @@ const Homepage: React.FC = () => {
           <EnterPageWrapper>
             <LogoWrapper>
               <Logo src={LogoNetflix} alt="logo da netflix" />
-              <EnterLink to={"/SignUp"}>Cadastrar</EnterLink>
+              <EnterLink to={"/Login"}>Entrar</EnterLink>
             </LogoWrapper>
             <StoryCard>
               <StoryCardTitle>
@@ -31,7 +31,7 @@ const Homepage: React.FC = () => {
                 Assista onde quiser. Cancele quando quiser.
               </StoryCardSubtitle>
               <StoryCardText>
-                Pronto para assistir? Clique no botão <EnterLink to={"/Login"}>Entrar</EnterLink> para
+                Pronto para assistir? Clique no botão <EnterLink to={"/SignUp"}>Cadastrar</EnterLink> para
                 acessar a sua conta ou realizar o seu cadatro!
               </StoryCardText>
             </StoryCard>

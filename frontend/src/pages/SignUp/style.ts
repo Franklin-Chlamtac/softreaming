@@ -36,7 +36,7 @@ export const Logo = styled.img`
 `;
 
 export const LoginFormWrapper = styled.div`
-  background-color: rgba(0, 0, 0, 0.75);
+  background-color: rgba(0, 0, 0, 70%);
   border-radius: 4px;
   display: flex;
   flex-direction: column;
