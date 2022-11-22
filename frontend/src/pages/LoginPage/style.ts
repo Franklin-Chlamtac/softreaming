@@ -36,6 +36,8 @@ export const Logo = styled.img`
 
 export const LogoLink = styled(Link)``;
 
+export const ProfileLink = styled(Link)``;
+
 export const LoginWrapper = styled.div`
     background-color: rgba(0, 0, 0, 0.70);
     border-radius: 5px;

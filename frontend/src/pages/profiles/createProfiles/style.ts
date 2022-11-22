@@ -1,19 +1,9 @@
 import styled, { css } from "styled-components";
 import { Link } from "react-router-dom";
 
-
-export const HomepageContainer = styled.header`
+export const PageWrapper = styled.div`
   height: 100vw;
-  max-width: 100vw;
-  background-image: url("./../src/assets/Netflix_poster.jpg");
-  background-position: center center;
-  background-size: cover;
-  background-repeat: no-repeat;
-`;
-
-export const EnterPageWrapper = styled.div`
-  height: 100%;
-  width: 100%;
+  width: 100vw;
   background: radial-gradient(
     ellipse,
     rgba(0, 0, 0, 0) 0%,
@@ -70,8 +60,6 @@ export const FormInput = styled.input`
   margin-bottom: 0.5rem;
 `;
 
-
-
 export const FormInputSubmit = styled(FormInput)`
   ${({ theme }) => css`
     background: ${theme.colors.redColor};
@@ -96,6 +84,3 @@ export const ErrorMessage = styled.p`
 `;
 
 export const LogoLink = styled(Link)``;
-
-
-

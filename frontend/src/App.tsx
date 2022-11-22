@@ -6,6 +6,8 @@ import { theme } from "./styles/theme";
 import SignUp from "./pages/SignUp/index";
 import { GlobalStyles } from "./styles/global-styles";
 import LoginPage from './pages/LoginPage';
+import ProfilesPage from './pages/profiles';
+import NewProfileForm from './pages/profiles/createProfiles';
 
 
 const App: React.FC = () => {
@@ -18,6 +20,8 @@ const App: React.FC = () => {
             <Route path="/" element={<Homepage />} />
             <Route path="/signup" element={<SignUp />} />
             <Route path="/login" element={<LoginPage/>} />
+            <Route path="/profiles" element={<ProfilesPage/>} />
+            <Route path="/createprofile" element={<NewProfileForm/>}/>
           </Routes>
         </ThemeProvider>
         <GlobalStyles />
