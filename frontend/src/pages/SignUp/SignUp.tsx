@@ -2,9 +2,12 @@ import React from "react";
 import { useForm, FieldValues } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { loginValidation }  from "./schema";
-import { HomepageContainer, EnterPageWrapper, LogoWrapper, LogoLink, Logo, LoginFormWrapper, FormTitle, FormInput, FormInputSubmit } from "./style";
+import { HomepageContainer, EnterPageWrapper, LogoWrapper, 
+  LogoLink, Logo, LoginFormWrapper, 
+  FormTitle, FormInput, FormInputSubmit } from "./style";
 import LogoImage from "../../assets/LogoNetflix.png";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 
 
@@ -16,9 +19,12 @@ const Form: React.FC = () => {
     });
 
     const url = ""
+    const navigate = useNavigate();
 
     const submitForm = (data:FieldValues) =>{
         axios.post(url, data)
+        console.log(data)
+        navigate("/login");
     };
 
     return (
@@ -45,9 +51,9 @@ const Form: React.FC = () => {
                             
                             <FormInput type="password" placeholder="Confirme sua senha..." {...register("password")}/>
                             
-                            <LogoLink to="/login">
-                              <FormInputSubmit type="submit" value="Cadastrar"/>
-                            </LogoLink>
+                            
+                            <FormInputSubmit type="submit" value="Cadastrar"/>
+                            
 
                 </form>
             </div>

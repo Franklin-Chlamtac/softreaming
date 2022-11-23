@@ -5,16 +5,23 @@ import axios from "axios";
 import { loginValidation } from "./schema";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useForm, FieldValues } from "react-hook-form";
+import { useNavigate } from "react-router-dom";
 
 
 const ProfileForm: React.FC = ()=> {
     const { register, handleSubmit, formState:{errors} } = useForm({
         resolver: yupResolver(loginValidation)
+        
     });
 
     const url = ""
+
+    const navigate = useNavigate();
+
     const submitForm = (data:FieldValues) =>{
+        console.log(data)
         axios.post(url, data)
+        navigate("/profiles")
     };
     return(
         <PageWrapper>
@@ -24,14 +31,14 @@ const ProfileForm: React.FC = ()=> {
                 </LogoLink>
             </LogoWrapper>
             <LoginFormWrapper>
-                <FormTitle>Criar usuário</FormTitle>
+                <FormTitle>Criar perfil</FormTitle>
 
                 <div className="profileForm">
                     <div className="inputs">
                         <form onSubmit={handleSubmit(submitForm)}>
                             <FormInput type="text" placeholder="Insira um nome" {...register("name")}/>
                             <FormInput type="text" placeholder="URL da imagem" {...register("imgURL")}/>
-                            <FormInputSubmit type="submit" value="Create"/>
+                            <FormInputSubmit type="submit" value="Criar"/>
                         </form>
                     </div>
                 </div>
