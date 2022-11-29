@@ -1,14 +1,21 @@
-import express from 'express';
-import { resolve } from 'path';
-import { AppDataSource } from './data-source';
-import routes from './routes';
+import { AppDataSource } from "./services/Database";
+import { app } from "./app"
 
-AppDataSource.initialize().then(()=>{
-    const app = express();
 
-    app.use(express.json());
 
-    app.use(routes)
 
-    return app.listen(process.env.PORT)
-})
+async function start() {
+    try {
+        await AppDataSource.initialize();
+        console.log("abriu hehe")
+        app.listen(5173, () => {
+            console.log("server started on port 5173")
+        })
+    } catch (error) {
+        console.log(error, "deu erro isso ai")
+        
+    }
+    
+}
+
+start();

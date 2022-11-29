@@ -18,11 +18,11 @@ const Form: React.FC = () => {
         resolver: yupResolver(loginValidation)
     });
 
-    const url = ""
+    const url = "http://localhost:5173/user"
     const navigate = useNavigate();
 
-    const submitForm = (data:FieldValues) =>{
-        axios.post(url, data)
+    const submitForm =  async (data:FieldValues) =>{
+        await axios.post(url, data)
         console.log(data)
         navigate("/login");
     };
