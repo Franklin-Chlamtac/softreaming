@@ -7,6 +7,10 @@ interface CreateUserPayload {
     password: string;
 }
 
+interface ListUserPayload {
+    name:string;
+}
+
 class UserController {
     async create(payload: CreateUserPayload){
         const newUser = await userRepository.save(payload);
@@ -17,6 +21,14 @@ class UserController {
         const listUsers = await userRepository.find();
         return listUsers;
     }
+
+    async getById(id:number) {
+        const user = await userRepository.findOne({
+            where: { id },
+        });
+        return user;
+    }
+
 }
 
 export default new UserController();
