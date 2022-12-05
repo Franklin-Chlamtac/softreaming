@@ -1,15 +1,14 @@
 import { Router } from "express";
-import UserHandler from "./User.Handler";
+import UserHandler from "./User.handler";
+import UserValidator from "./User.validator";
+import Authentication from "../../services/Authentication";
 
 
 export default (): Router => {
     const router = Router();
 
-    router.post("/", UserHandler.handleCreateRequest)
-    router.get("/", UserHandler.handleListRequest)
-    router.get("/:user_id", UserHandler.handleUpdateRequest)
-    router.patch("/:user_id", UserHandler.handleUpdateRequest)
-    
+    router.post('/',  UserValidator.validateCreateUserPayload, UserHandler.handleCreateRequest);
+    router.post('/authenticate', Authentication.authenticate )
 
     return router;
 }

@@ -1,25 +1,30 @@
-import { Column, Entity, OneToMany, PrimaryGeneratedColumn } from "typeorm";
+import { Column, CreateDateColumn, DeleteDateColumn, Entity, OneToMany, PrimaryGeneratedColumn, UpdateDateColumn } from "typeorm";
 import { Profile } from "../Profiles/Profiles.model";
 
-@Entity("user")
+@Entity("users")
 class User {
     @PrimaryGeneratedColumn()
     id: number;
 
-    @Column({type:"text"})
-    userName: string;
+    @Column()
+    name: string;
 
-    @Column({type:"text"})
+    @Column()
     email: string;
 
-    @Column({type:"text"})
-    password: string;
-    
-    @Column({nullable: true})
-    role: string;
+    @Column()
+    password_hash: string;
 
-    @OneToMany(() => Profile, (profiles) => profiles.user)
-    profiles: Profile[];
+    @CreateDateColumn()
+    created_at: Date;
+
+    @UpdateDateColumn()
+    updated_at: Date;
+
+    @DeleteDateColumn()
+    deleted_at: Date;
+
+    
 }
 
 export default User;

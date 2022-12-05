@@ -1,34 +1,36 @@
-import { userRepository }from "./User.repository";
+import { AppDataSource } from "../../services/Database";
+import User from "./User.model";
+import bcrypt from "bcrypt";
 
 
 interface CreateUserPayload {
-    userName: string;
+    name: string;
     email: string;
     password: string;
 }
 
-interface ListUserPayload {
-    name:string;
-}
-
 class UserController {
-    async create(payload: CreateUserPayload){
-        const newUser = await userRepository.save(payload);
-        return newUser;
+    async create(payload: CreateUserPayload) {
+        const user = await AppDataSource.getRepository(User).save({
+            ...payload,
+            password_hash: bcrypt.hashSync(payload.password, bcrypt.genSaltSync(10)),
+        })
+        return user;
     }
 
-    async list(){
-        const listUsers = await userRepository.find();
-        return listUsers;
-    }
-
-    async getById(id:number) {
-        const user = await userRepository.findOne({
-            where: { id },
+    async getUserById(id: number){
+        const user = await AppDataSource.getRepository(User).findOne({
+            where: { id }
         });
         return user;
     }
 
+    async getUserByEmail(email:string){
+        const user = await AppDataSource.getRepository(User).findOne({
+            where: { email }
+        })
+        return user;
+    }
 }
 
 export default new UserController();
