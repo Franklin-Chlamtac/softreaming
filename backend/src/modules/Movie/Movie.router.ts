@@ -6,5 +6,6 @@ export default (): Router => {
 
     router.post('/', MovieHandler.handleCreateRequest);
     router.get('/', MovieHandler.handleListRequest);
+    router.patch('/:movie_id', MovieHandler.handleUpdateRequest);
     return router;
 }

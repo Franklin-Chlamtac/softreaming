@@ -1,3 +1,4 @@
+import { In } from "typeorm";
 import { AppDataSource } from "../../services/Database";
 import Movie from "./Movie.model";
 
@@ -13,9 +14,19 @@ class MovieController {
         return movie;
     }
     async list(){
-        const movies = await AppDataSource.getRepository(Movie).find();
+        const movies = await AppDataSource.getRepository(Movie).find({
+            relations: ["categories"]
+        });
         return movies;
     }
+    async getById(id: number){
+        const movie = await AppDataSource.getRepository(Movie).findOne({
+            where: { id }
+        });
+        return movie;
+    }
+
+
 }
 
 export default new MovieController();

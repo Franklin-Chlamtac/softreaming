@@ -1,5 +1,6 @@
 import { Request, Response } from "express";
 import { AppDataSource } from "../../services/Database";
+import CategoryController from "../Category/Category.controller";
 import MovieController from "./Movie.controller";
 import Movie from "./Movie.model";
 
@@ -23,6 +24,31 @@ class MovieHandler{
             res.status(200).json({ok:true, movies});
         } catch (error) {
             res.status(500).json({ok:false, message:"erro ao listar filmes."})
+        }
+    }
+
+    async handleUpdateRequest(req: Request, res:Response){
+        const { categories_ids, year, name } = req.body;
+        try {
+            const movieUpdate = await MovieController.getById(Number(req.params.movie_id));
+            if(!movieUpdate){
+                return res.status(404).json({ok:false, message: "filme não encontrado"});
+            }
+            if (name){
+                movieUpdate.name=name;
+            }
+            if (year){
+                movieUpdate.year = year;
+            }
+            if (categories_ids){
+                const categories = await CategoryController.listByIds(categories_ids)
+                movieUpdate.categories = categories;
+            }
+            await AppDataSource.getRepository(Movie).save(movieUpdate);
+            return res.status(200).json({ok:true, movieUpdate});
+
+        } catch (error) {
+            res.status(500).json({ok:false, message:"erro ao atualizar filme."})
         }
     }
 }
