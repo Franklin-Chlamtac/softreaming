@@ -18,6 +18,7 @@ class UserController {
         return user;
     }
 
+
     async getUserById(id: number){
         const user = await AppDataSource.getRepository(User).findOne({
             where: { id }

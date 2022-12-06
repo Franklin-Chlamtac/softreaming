@@ -1,5 +1,6 @@
 import { Request, Response } from "express";
 import UserController from "./User.controller";
+import User from "./User.model";
 
 
 class UserHandler {
