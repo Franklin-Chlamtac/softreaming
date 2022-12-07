@@ -1,5 +1,13 @@
 import { Column, CreateDateColumn, DeleteDateColumn, Entity, OneToMany, PrimaryGeneratedColumn, UpdateDateColumn } from "typeorm";
 
+
+
+
+export enum UserRole{
+    ADMIN = "admin",
+    CUSTOMER = "customer"
+
+}
 @Entity("users")
 class User {
     @PrimaryGeneratedColumn()
@@ -13,6 +21,13 @@ class User {
 
     @Column()
     password_hash: string;
+
+    @Column({
+        type: "enum",
+        enum: UserRole,
+        default:UserRole.CUSTOMER
+    })
+    role: UserRole;
 
     @CreateDateColumn()
     created_at: Date;

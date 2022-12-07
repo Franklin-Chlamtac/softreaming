@@ -1,12 +1,17 @@
 import { Request, Response } from "express";
 import { AppDataSource } from "../../services/Database";
 import CategoryController from "../Category/Category.controller";
+import User, { UserRole } from "../User/User.model";
 import MovieController from "./Movie.controller";
 import Movie from "./Movie.model";
 
 class MovieHandler{
     async handleCreateRequest(req: Request, res: Response) {
         const { name, year } = req.body;
+        const requestingUser = res.locals.user as User;
+        if(requestingUser.role != UserRole.ADMIN){
+            return res.status(401).json({ok:false, message:"Apenas admins podem fazer essa ação."})
+        }
 
         try {
             const movie = await MovieController.create({ name, year });

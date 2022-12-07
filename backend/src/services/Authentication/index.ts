@@ -56,7 +56,7 @@ class AuthService{
             if(!user){
                 return res.status(401).json({ok:false, message:"token inválido"});
             }
-            return res.locals.user = user;
+            res.locals.user = user;
             next();
         } catch (error) {
             console.log(error, "erro token");
