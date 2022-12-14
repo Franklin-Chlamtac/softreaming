@@ -13,6 +13,11 @@ export const useApi = () => ({
 
     },
 
+    signup: async (name:string, password:string, email:string)=> {
+        const response = await api.post('/user', { name, email, password });
+        return response.data;
+    },
+
     signin: async (email: string, password: string) => {
         const response = await api.post('/signin', { email, password});
         return response.data;

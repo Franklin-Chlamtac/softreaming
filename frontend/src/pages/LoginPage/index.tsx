@@ -1,12 +1,13 @@
 import React from "react";
-import LoginForm from "./Login";
+import LoginPage2 from "./Login"
+
 
 
 
 const LoginPage: React.FC = () => {
     
     return(
-        <LoginForm/>
+        <LoginPage2/>
         
     )
 };

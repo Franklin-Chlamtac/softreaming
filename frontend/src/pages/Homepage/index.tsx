@@ -32,7 +32,7 @@ const Homepage: React.FC = () => {
               </StoryCardSubtitle>
               <StoryCardText>
                 Pronto para assistir? Clique no botão <EnterLink to={"/SignUp"}>Cadastrar</EnterLink> para
-                acessar a sua conta ou realizar o seu cadatro!
+                acessar a sua conta ou realizar o seu cadastro!
               </StoryCardText>
             </StoryCard>
           </EnterPageWrapper>

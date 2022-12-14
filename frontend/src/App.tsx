@@ -8,8 +8,8 @@ import { GlobalStyles } from "./styles/global-styles";
 import LoginPage from './pages/LoginPage';
 import ProfilesPage from './pages/profiles';
 import NewProfileForm from './pages/profiles/createProfiles';
-import { RequireAuth } from './contexts/Auth/RequireAuth';
-import { AuthProvider } from './contexts/Auth/AuthProvider';
+import ProtectedRoute from './components/ProtectRoute';
+
 
 
 
@@ -23,14 +23,14 @@ const App: React.FC = () => {
                 <Route path="/" element={<Homepage />} />
                 <Route path="/signup" element={<SignUp />} />
                 <Route path="/login" element={<LoginPage/>} />
-                <Route path="/profiles" element={<ProfilesPage/>} />
+                <Route element={<ProtectedRoute />}>
+                  <Route path="/profiles" element={<ProfilesPage/>} />
+                </Route>
                 <Route path="/createprofile" element={<NewProfileForm/>}/>
               </Routes>
             </ThemeProvider>
             <GlobalStyles />
           </Router>    
-
-
     </>
 
   )

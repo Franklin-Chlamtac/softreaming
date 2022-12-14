@@ -87,7 +87,7 @@ export const FormErrorMessageWrapper = styled.div`
   margin-bottom: 0.5rem;
 `;
 
-export const ErrorMessage = styled.p`
+export const ErrorMessage = styled.span`
   color: #f8d7da;
   font-size: 14px;
 `;

@@ -33,6 +33,7 @@ class AuthService{
             const token = jwt.sign({id:user.id} as AuthSignPayload, `${process.env.JWT_SECRET}`);
             return res.status(200).json({ok: true, token})
             
+            
         } catch (error) {
             console.log(error, "erro na auth do token")
             return res.status(400).json({ok: false, message:"erro de auth no token"})

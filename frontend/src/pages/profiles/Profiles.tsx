@@ -15,7 +15,6 @@ const Profiles: React.FC = () => {
         {id: 3, profileName:"vynycyws", profileUrlImage:"https://feijoadasimulator.top/br/sources/15020.jpeg"},
         {id: 4, profileName:"cabesa", profileUrlImage:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTGt9AlnXv82OaGrBG_vykvbL5EeoFEOstD6Q&usqp=CAU"},
     ]
-
     return(
         <Background>
             <LogoWrapper>
