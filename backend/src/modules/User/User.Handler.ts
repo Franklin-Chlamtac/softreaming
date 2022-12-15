@@ -11,7 +11,7 @@ class UserHandler {
             const user = await UserController.create({ name, email, password });
             return res.status(201).json({ ok: true, message:"usuário criado.", user});
         } catch (error) {
-            console.log(error,"olha o erro");
+            console.log(error,"olha o erro criando o user");
             return res.status(500).json({ ok: false, message: "erro aqui manito, não criou"});
         }
 

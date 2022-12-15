@@ -1,4 +1,5 @@
 import { Column, CreateDateColumn, DeleteDateColumn, Entity, OneToMany, PrimaryGeneratedColumn, UpdateDateColumn } from "typeorm";
+import Profile from "../Profiles/Profiles.model";
 
 
 
@@ -37,6 +38,9 @@ class User {
 
     @DeleteDateColumn()
     deleted_at: Date;
+
+    @OneToMany(() => Profile, (profile) => profile.user)
+    profiles: Profile[];
 
     
 }

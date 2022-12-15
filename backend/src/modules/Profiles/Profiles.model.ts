@@ -1,4 +1,5 @@
-import { Column, Entity, ManyToOne, PrimaryGeneratedColumn } from "typeorm";
+import { Column, Entity, JoinColumn, ManyToOne, PrimaryGeneratedColumn } from "typeorm";
+import User from "../User/User.model";
 
 
 
@@ -13,4 +14,16 @@ class Profile {
     @Column()
     profileUrlImage: string;
 
+    @Column()
+    userId: number;
+
+
+    @ManyToOne(() => User, (user)=> user.profiles)
+    @JoinColumn({name:'userId', })
+    user:User;
+
+
+
 }
+
+export default Profile;
